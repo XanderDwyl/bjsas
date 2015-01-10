@@ -44,6 +44,21 @@ return array(
 	|
 	*/
 
+	'connections' => array(
+
+		'mysql' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'bjsadmin',
+			'username'  => 'root',
+			'password'  => 'test',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),
+
+	),
+
 	/*
 	|--------------------------------------------------------------------------
 	| Migration Repository Table

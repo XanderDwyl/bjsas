@@ -13,7 +13,7 @@ return array(
 	|
 	*/
 
-	'debug' => true,
+	'debug'    => true,
 	'timezone' => 'America/Los_Angeles',
 
 );
