@@ -87,11 +87,11 @@
 					<div class="col-xs-12 no-padding margin-top-20">
 						<div class="col-xs-12 col-sm-6 col-lg-2 no-padding">
                             <div class="form-group">
-                                <label for="homeAddress" class="hidden-xs col-sm-12 control-label no-padding-right text-left">
+                                <label for="sss" class="hidden-xs col-sm-12 control-label no-padding-right text-left">
                                     <span>SSS ID</span>
                                 </label>
                                 <div class="col-sm-12 no-padding-right">
-                                    <span class="input-icon icon-right" data-toggle="tooltip" data-placement="top-right" data-original-title="{{requestResult.errors.id[0]}}" field='id' tooltip-show>
+                                    <span class="input-icon icon-right" data-toggle="tooltip" data-placement="top-right" data-original-title="{{requestResult.errors.sss[0] || requestResult.errors.duplicate}}" field='sss' name='agency' tooltip-show>
                                         <input type="text" class="form-control" placeholder="(optional)" name='agencyid[]' ng-model="employee.SSS">
                                     </span>
                                 </div>
@@ -99,11 +99,11 @@
                         </div>
                         <div class="col-xs-12 col-sm-6 col-lg-2 no-padding">
                             <div class="form-group">
-                                <label for="homeAddress" class="hidden-xs col-sm-12 control-label no-padding-right text-left">
+                                <label for="pagibig" class="hidden-xs col-sm-12 control-label no-padding-right text-left">
                                     <span>Pag-ibig ID</span>
                                 </label>
                                 <div class="col-sm-12 no-padding-right">
-                                    <span class="input-icon icon-right" data-toggle="tooltip" data-placement="top-right" data-original-title="{{requestResult.errors.id[0]}}" field='id' tooltip-show>
+                                    <span class="input-icon icon-right" data-toggle="tooltip" data-placement="top-right" data-original-title="{{requestResult.errors.pagibig[0] || requestResult.errors.duplicate}}" field='pagibig' name='agency' tooltip-show>
                                         <input type="text" class="form-control" placeholder="(optional)" name='agencyid[]' ng-model="employee.PagIbig">
                                     </span>
                                 </div>
@@ -111,11 +111,11 @@
                         </div>
                         <div class="col-xs-12 col-sm-6 col-lg-2 no-padding">
                             <div class="form-group">
-                                <label for="homeAddress" class="hidden-xs col-sm-12 control-label no-padding-right text-left">
+                                <label for="philhealth" class="hidden-xs col-sm-12 control-label no-padding-right text-left">
                                     <span>PhilHealth ID</span>
                                 </label>
                                 <div class="col-sm-12 no-padding-right">
-                                    <span class="input-icon icon-right" data-toggle="tooltip" data-placement="top-right" data-original-title="{{requestResult.errors.id[0]}}" field='id' tooltip-show>
+                                    <span class="input-icon icon-right" data-toggle="tooltip" data-placement="top-right" data-original-title="{{requestResult.errors.philhealth[0] || requestResult.errors.duplicate}}" field='philhealth' name='agency' tooltip-show>
                                         <input type="text" class="form-control" placeholder="(optional)" name='agencyid[]' ng-model="employee.PhilHealth">
                                     </span>
                                 </div>

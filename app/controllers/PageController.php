@@ -15,7 +15,11 @@ class PageController extends BaseController {
 						'showSalary')));
 	}
 	public function showIndex() {
-		return Redirect::to('login');
+		if( TransactionQuery::checkDBEntry() )
+			return Redirect::to('login');
+
+		// show if user table is empty.
+		$this->layout->content = View::make('pages.createadmin');
 	}
 	public function showDashboard() {
 		$this->layout->content = View::make('pages.dashboard');
@@ -27,8 +31,11 @@ class PageController extends BaseController {
 	{
 		if(Auth::check())
 			return Redirect::to('dashboard');
-		else
+		else if( TransactionQuery::checkDBEntry() )
 			$this->layout->content = View::make('pages.login');
+		else
+			// show if user table is empty.
+			$this->layout->content = View::make('pages.createadmin');
 	}
 
 	public function showSalary() {

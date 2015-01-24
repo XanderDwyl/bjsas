@@ -75,6 +75,35 @@ body:before {
     padding-top : 10px;
 }
 
+
+/* ========================================================================
+  custom: well
+ ========================================================================== */
+.well span.notification {
+  font-size  : 20px;
+  display    : block;
+  text-align : center;
+}
+ /* ========================================================================
+  custom: form-group
+ ========================================================================== */
+.form-group label.field, .form-group span.field {
+  display : inline-block;
+}
+.form-group label.field {
+  width   : 130px;
+  margin  : 0;
+}
+.form-group span.field {
+  width : 65%;
+}
+.form-group span.button {
+  float   : right;
+  padding : 0 25px 15px 0;
+}
+.form-group span.button button {
+  width : 130px;
+}
 /* ========================================================================
    custom: width
  ========================================================================== */

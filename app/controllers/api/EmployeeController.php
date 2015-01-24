@@ -10,22 +10,34 @@ class EmployeeController extends Controller {
 	}
 	public function store( ) {
 
-		$validator = Validator::make(Input::all(), Employee::$rules);
+		$validateEmployee     = Validator::make(Input::all(), Employee::$rules);
+		$validateSSSId        = Validator::make(array('id'=>Input::get('SSS')), Agency::$rules);
+		$validatePagIbigId    = Validator::make(array('id'=>Input::get('PagIbig')), Agency::$rules);
+		$validatePhilHealthId = Validator::make(array('id'=>Input::get('PhilHealth')), Agency::$rules);
+		$validateDuplicateId  = array('fails'=>false,'message'=>null);
 
-		if( $validator->passes() ) {
-			$validator = Validator::make(
-				array('id'=>array( Input::get('SSS'),Input::get('PagIbig'),Input::get('PhilHealth'))),
-				Agency::$rules
-			);
-		}
-
-		$flashMessage = array(
+		$flashMessage         = array(
 			'type'    => 'error',
-			'message' => 'Invalid input!',
-			'errors'  => $validator->errors()
+			'message' => 'Invalid input!'
 		);
 
-		if ( !$validator->passes() ) {
+		$AgencyId = array_filter(array(Input::get('SSS'),Input::get('PagIbig'),Input::get('PhilHealth')));
+
+		if (count(array_unique($AgencyId)) != count($AgencyId)) {
+			$validateDuplicateId = array('fails'=>true,
+				'message'=>'Id\'s contains duplicate');
+		}
+
+		if ( $validateEmployee->fails() || $validateSSSId->fails() || $validatePagIbigId->fails() || $validatePhilHealthId->fails() || array_get($validateDuplicateId,'fails') ) {
+
+			$validatorMessages = array_merge_recursive($validateEmployee->messages()->toArray(),
+				array('sss'=>array_get($validateSSSId->messages()->toArray(), 'id')),
+				array('pagibig'=>array_get($validatePagIbigId->messages()->toArray(), 'id')),
+				array('philhealth'=>array_get($validatePhilHealthId->messages()->toArray(), 'id')),
+				array('duplicate'=>array_get($validateDuplicateId,'message')) );
+
+			$flashMessage = array_add( $flashMessage, 'errors', $validatorMessages );
+
 			return $flashMessage;
 		}
 
@@ -70,7 +82,7 @@ class EmployeeController extends Controller {
 
 		$flashMessage = array(
 			'type'    => 'success',
-			'message' => 'Employee is successfully added. -- ' . Input::get('amount')
+			'message' => 'Employee is successfully added.'
 		);
 
 		return Response::json($flashMessage);

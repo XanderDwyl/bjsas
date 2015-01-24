@@ -166,4 +166,13 @@ class TransactionQuery {
 	public static function getTotalCACollectables() {
 		return self::getTotalCashAdvances();
 	}
+
+	public static function checkDBEntry() {
+		if( Schema::hasTable('users') )
+			return User::get()->count();
+		else
+			return 0;
+	}
+
+
 }

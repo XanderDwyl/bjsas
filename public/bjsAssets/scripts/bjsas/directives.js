@@ -106,9 +106,14 @@ angular.module('directives', [])
 						$(element).removeClass( 'has-error' );
 
 						if( data && data.type==='error' ) {
-							if( data.errors[ attrs['field'] ] ) {
+							if( data.errors[attrs['field']] || (attrs['name']==='agency' && data.errors['duplicate']) ) {
 								$(element).addClass( 'has-error' );
 								$(element).tooltip('show');
+							}
+							if( attrs['name']==='agency' && data.errors['duplicate'] && !element[0].firstElementChild.value ) {
+								$(element).removeClass( 'has-error' );
+								$(element).tooltip('hide');
+								$(element).attr('data-original-title', '');
 							}
 						}
 

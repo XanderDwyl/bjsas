@@ -29,6 +29,10 @@
 .bootstrap-select button {
 	min-height : 34px;
 }
+.align-center {
+	margin : 2% auto 0;
+	float  : none;
+}
 /* ========================================================================
 	 component: error;
  ========================================================================== */
@@ -796,6 +800,7 @@ display: block!important;
 	padding          : 25px 25px;
 	background-color : #f5f5f5;
 	border           : 1px solid #efefef;
+	overflow         : hidden;
 }
 .widget.radius-bordered .widget-body {
 	-webkit-border-radius: 0 0 3px 3px;
@@ -1252,9 +1257,9 @@ form div > hr {
 	component: label
 ========================================================================== */
 label {
-	font-weight: normal;
-	font-size: 13px;
-	vertical-align: middle;
+	font-weight    : normal;
+	font-size      : 13px;
+	vertical-align : middle;
 }
 /* ========================================================================
 	component: inputs
