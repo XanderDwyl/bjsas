@@ -67,8 +67,9 @@
 																</div>
 															</div>
 														</li>
-														<li class="widget-item" ng-repeat="employee in employeesWithSalary | filter: { salary_rates:0 }" show-employee>
-															<div class="row">
+														<li class="widget-item" ng-repeat="employee in employeesWithSalary" repeat-done="fetchDone()" show-employee>
+															<div class="row" ng-show="isLoading">Loading...</div>
+															<div class="row" ng-hide="isLoading">
 																<div class="col-lg-4 col-sm-6 col-xs-12 text-center">
 																	<span class="divider hidden-xs"></span>
 																	<span>@{{employee.firstname + ' ' + employee.lastname}}</span>

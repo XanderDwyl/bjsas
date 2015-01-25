@@ -22,6 +22,14 @@ angular.module('controllers', [ 'angularMoment' ])
 			$scope.getEmployeesWithSalary();
 		};
 
+		$scope.setLoading = function(loading) {
+			$scope.isLoading = loading;
+		};
+
+		$scope.fetchDone = function() {
+			$scope.setLoading(false);
+		};
+
 		$scope.getCurrentDate = function () {
 
 			var today = new Date();
@@ -48,7 +56,9 @@ angular.module('controllers', [ 'angularMoment' ])
 			} );
 		};
 		$scope.getEmployeesWithSalary = function( ) {
+			$scope.setLoading(true);
 			Api.get( 'All', 'salary').then( function( response, status) {
+				$scope.setLoading(false);
 				$scope.employeesWithSalary = response.data;
 			} );
 		};

@@ -17,6 +17,7 @@
                 <div class="page-body" ng-controller="employeesController" data-ng-init="init()">
                     <div class="row">
                         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="row" ng-show="isLoading">Loading...</div>
                             <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                                     <div class="databox databox-lg databox-inverted radius-bordered databox-shadowed databox-graded databox-vertical">

@@ -68,7 +68,8 @@
                                                             </div>
                                                         </li>
                                                         <li class="widget-item" ng-repeat="employee in employees">
-                                                            <div class="row">
+                                                            <div class="row" ng-show="isLoading">Loading...</div>
+                                                            <div class="row" ng-hide="isLoading">
                                                                 <div class="col-lg-1 col-sm-12 text-center">
                                                                     <span>@{{employee.id}}</span>
                                                                 </div>
